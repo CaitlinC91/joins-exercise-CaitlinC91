@@ -70,3 +70,22 @@ GROUP BY company_name, film_title;
 
 -- 7. Which have a higher average rating, movies which are over two hours long or movies which are under two hours?
 
+SELECT COUNT(length_in_min), AVG(imdb_rating)
+FROM specs
+FULL JOIN rating
+USING(movie_id)
+WHERE length_in_min >120
+
+UNION
+
+SELECT COUNT(length_in_min), AVG(imdb_rating)
+FROM specs
+FULL JOIN rating
+USING(movie_id)
+WHERE length_in_min <120
+
+-- Movies over 2 hours have higher rating
+
+
+
+
